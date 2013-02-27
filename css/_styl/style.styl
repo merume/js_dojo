@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+// use normalize.css
+//http://necolas.github.com/normalize.css/
+@import 'normalize';
+
+@import 'variable';
+
+/*==================================================
+	body & adjust
+===================================================*/
+body {
+	background-color: baseBgColor;
+	color: baseFontColor;
+	line-height: 1.5;
+	font-size: baseFontSize;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+}
+
+dl, dd {
+	margin: 0;
+}
+
+img {
+	vertical-align: bottom;
+}
+
+/*==================================================
+	header
+===================================================*/
+#header {
+	background-color: #333;
+	color: #fff;
+	box-shadow: 1px 0 3px #000;
+
+	h1 {
+		margin 0;
+		padding: 5px 0;
+	}
+}
+
+#headerInner {
+	screenWidth();
+}
+
+/*==================================================
+	main
+===================================================*/
+#main {
+	padding: 100px 0 30px 0;
+}
+#contents {
+	screenWidth();
+}
+#inputBlock {
+	text-align: center;
+
+	h2 {
+		font-size: 30px;
+	}
+	p {
+		font-size: 20px;
+	}
+	select {
+		font-size: inherit;
+		vertical-align: middle;
+	}
+}
+#sumbitButton {
+	text-align: center;
+	color: #000;
+	span {
+		border-radius: 5px;
+		display: inline-block;
+		border: 1px solid #CCC;
+		background: #ffffff;
+		background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5));
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%);
+		background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%);
+		font-size: 20px;
+		padding: 10px 50px;
+
+		&:active {
+			cursor: pointer;
+			background: #7d7e7d;
+			background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e));
+			background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%);
+			background: linear-gradient(to bottom,  #7d7e7d 0%,#0e0e0e 100%);
+			color: #FFF;
+		}
+	}
+}
+
+/*==================================================
+	footer
+===================================================*/
+
+#footerInner {
+	screenWidth();
+}

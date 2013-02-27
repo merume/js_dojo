@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<title>Pocket Money Book</title>
+	<link rel="stylesheet" href="css/style.css" />	
+</head>
+<body>
+	<header id="header">
+		<header id="headerInner">
+			<h1>Pocket Money Book</h1>
+		</header>
+	</header>
+	<section id="main">
+		<div id="contents">
+			<div id="inputBlock">
+				<h2>あなた今日いくら使ったの！？</h2>
+				<p>
+					<select name="selectMonth" id="selectMonth">
+						<option value="0">--</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>月
+					<select name="selectDay" id="selectDay">
+						<option value="0">--</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>日
+					<input type="text" placeholder="1000" name="todayMoney" id="todayMoney" />円
+				</p>
+				<p id="sumbitButton"><span>登録</span></p>
+				<!-- <p id="listButton"><span>リスト</span></p> -->
+			</div>
+		</div>
+		<div id="viewList">
+			<h3 id="viewMonth"><span>２</span>月</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>１日</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <footre id="footer">
+	<footer id="footerInner">
+		<p>JS道場</p>
+	</footer>
+</footre> -->
+<script type="text/javascript" >
+
+$(document).ready(function(){
+  $("#listButton").click(function(){
+    $.ajax({
+      url: 'http://127.0.0.1:8888/list',
+      type:"POST",
+      // data: "list=aaa",
+      dataType: "json",
+      success:function(res){
+        if(res){
+          alert(res);
+        }
+      }
+    });
+  });
+
+ 
+
+  $("#sumbitButton").click(function(){
+    var day = $('#selectDay').val();
+    var mon = $('#selectMonth').val();
+    var money = $('#todayMoney').val();
+    $.ajax({
+      url: 'http://127.0.0.1:8888/input',
+      type:"POST",
+      data: "date="+ mon + "-" + day +"&money=" + money,
+      dataType: "json",
+      success:function(res){
+        if(res){
+          // alert(res.response);
+        }
+      }
+    });
+  });
+});
+
+</script>
+
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
